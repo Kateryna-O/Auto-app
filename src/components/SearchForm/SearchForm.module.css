@@ -9,7 +9,9 @@
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 40px;
+  position: relative;
 }
+
 .labelLocation {
   color: var(--grey);
   font-family: ' Inter', sans-serif;
@@ -19,10 +21,17 @@
   line-height: 1.5;
   align-self: stretch;
 }
+.iconMap {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 52px;
+  margin-left: 20px;
+}
 .location {
   display: flex;
   width: 360px;
-  padding: 18px 20px;
+  padding: 18px 50px;
   justify-content: center;
   align-items: flex-start;
   border-radius: 12px;

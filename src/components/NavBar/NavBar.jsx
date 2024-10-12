@@ -14,7 +14,7 @@ export const NavBar = () => {
           Home
         </NavLink>
         <NavLink
-          to="/campers"
+          to="/catalog"
           className={({ isActive }) => (isActive ? css.textActive : css.text)}
         >
           Catalog

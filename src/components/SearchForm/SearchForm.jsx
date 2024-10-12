@@ -1,34 +1,36 @@
 import { useForm } from 'react-hook-form';
 import sprite from '../../assets/icon/sprite.svg';
 import css from './SearchForm.module.css';
-import { useState } from 'react';
 
 export const SearchForm = () => {
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm({ mode: 'onTouched' });
-
-  const [activeCheckboxes, setActiveCheckboxes] = useState({});
+  const { register, handleSubmit, setValue, watch } = useForm({
+    mode: 'onTouched',
+  });
 
   const handleCheckboxChange = event => {
     const { id, checked } = event.target;
-    setActiveCheckboxes(prev => ({
-      ...prev,
-      [id]: checked,
-    }));
+    setValue(id, checked);
   };
+
+  const isACChecked = watch('AC', false);
+  const isTransmissionChecked = watch('transmission', false);
+  const isKitchenChecked = watch('kitchen', false);
+  const isTVChecked = watch('TV', false);
+  const isBathroomChecked = watch('bathroom', false);
+  const selectedVehicleType = watch('form', '');
 
   return (
     <form
       onSubmit={handleSubmit(data => console.log(data))}
-      className={css.fomr}
+      className={css.form}
     >
       <div className={css.wrapperLocation}>
         <label htmlFor="location" className={css.labelLocation}>
           Location
         </label>
+        <svg className={css.iconMap}>
+          <use href={`${sprite}#icon-Map`} />
+        </svg>
         <input
           type="text"
           id="location"
@@ -44,7 +46,7 @@ export const SearchForm = () => {
         <hr className={css.line} />
         <div className={css.wrapperVehicle}>
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.AC ? css.active : ''}`}
+            className={`${css.labelCheck} ${isACChecked ? css.active : ''}`}
           >
             <input
               type="checkbox"
@@ -59,8 +61,9 @@ export const SearchForm = () => {
             </svg>
             AC
           </label>
+
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.transmission ? css.active : ''}`}
+            className={`${css.labelCheck} ${isTransmissionChecked ? css.active : ''}`}
           >
             <input
               type="checkbox"
@@ -75,8 +78,9 @@ export const SearchForm = () => {
             </svg>
             Automatic
           </label>
+
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.kitchen ? css.active : ''}`}
+            className={`${css.labelCheck} ${isKitchenChecked ? css.active : ''}`}
           >
             <input
               type="checkbox"
@@ -91,8 +95,9 @@ export const SearchForm = () => {
             </svg>
             Kitchen
           </label>
+
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.TV ? css.active : ''}`}
+            className={`${css.labelCheck} ${isTVChecked ? css.active : ''}`}
           >
             <input
               type="checkbox"
@@ -107,8 +112,9 @@ export const SearchForm = () => {
             </svg>
             TV
           </label>
+
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.bathroom ? css.active : ''}`}
+            className={`${css.labelCheck} ${isBathroomChecked ? css.active : ''}`}
           >
             <input
               type="checkbox"
@@ -130,47 +136,49 @@ export const SearchForm = () => {
         <hr className={css.line} />
         <div className={css.wrapperType}>
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.Van ? css.active : ''}`}
+            className={`${css.labelCheck} ${selectedVehicleType === 'Van' ? css.active : ''}`}
           >
             <input
-              type="checkbox"
-              name="checkboxVehicleType"
+              type="radio"
+              name="form"
               id="Van"
-              {...register('Van')}
+              value="Van"
+              {...register('form')}
               className={css.hiddenCheckbox}
-              onChange={handleCheckboxChange}
             />
             <svg className={css.icon}>
               <use href={`${sprite}#icon-grid2`}></use>
             </svg>
             Van
           </label>
+
           <label
-            className={`${css.labelCheck} ${css.minMargin}  ${activeCheckboxes.FullyIntegrated ? css.active : ''}`}
+            className={`${css.labelCheck} ${css.minMargin} ${selectedVehicleType === 'FullyIntegrated' ? css.active : ''}`}
           >
             <input
-              type="checkbox"
-              name="checkboxVehicleType"
+              type="radio"
+              name="form"
               id="FullyIntegrated"
-              {...register('FullyIntegrated')}
+              value="FullyIntegrated"
+              {...register('form')}
               className={css.hiddenCheckbox}
-              onChange={handleCheckboxChange}
             />
             <svg className={css.icon}>
               <use href={`${sprite}#icon-grid`}></use>
             </svg>
             Fully Integrated
           </label>
+
           <label
-            className={`${css.labelCheck} ${activeCheckboxes.Alcove ? css.active : ''}`}
+            className={`${css.labelCheck} ${selectedVehicleType === 'Alcove' ? css.active : ''}`}
           >
             <input
-              type="checkbox"
-              name="checkboxVehicleType"
+              type="radio"
+              name="form"
               id="Alcove"
-              {...register('Alcove')}
+              value="Alcove"
+              {...register('form')}
               className={css.hiddenCheckbox}
-              onChange={handleCheckboxChange}
             />
             <svg className={css.icon}>
               <use href={`${sprite}#icon-grid3`}></use>
@@ -179,6 +187,7 @@ export const SearchForm = () => {
           </label>
         </div>
       </div>
+
       <button type="submit" className={css.submitButton}>
         Search
       </button>

@@ -14,8 +14,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/campers" element={<CatalogPage />} />
-        <Route path="/campers/:id" element={<CamperDetailsPage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/catalog/:id" element={<CamperDetailsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import css from './Hero.module.css';
 export const Hero = () => {
   return (
@@ -8,7 +9,7 @@ export const Hero = () => {
           You can find everything you want in our catalog
         </h2>
         <button type="button" className={css.button}>
-          View Now
+          <Link to="/catalog">View Now</Link>
         </button>
       </div>
     </div>

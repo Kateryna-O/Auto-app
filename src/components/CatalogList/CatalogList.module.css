@@ -1,0 +1,16 @@
+.buttonLoad {
+  display: flex;
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  border: 1px solid var(--gray-light);
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  margin: auto;
+}

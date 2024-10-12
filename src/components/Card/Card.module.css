@@ -1,0 +1,133 @@
+.wrapperCard {
+  display: flex;
+  padding: 24px;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--gray-light);
+  background-color: var(--white);
+  margin-bottom: 32px;
+}
+.img {
+  width: 292px;
+  height: 320px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.wrapperNamePrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name {
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.price {
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.iconHeart {
+  width: 25px;
+  height: 25px;
+}
+.buttonHeart {
+  background-color: transparent;
+  cursor: pointer;
+}
+.iconStar {
+  width: 16px;
+  height: 16px;
+  fill: var(--rating);
+}
+.rating {
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.iconMap {
+  width: 16px;
+  height: 16px;
+}
+.wrapperRating {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  color: var(--text);
+  text-overflow: ellipsis;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-self: stretch;
+}
+.listItem {
+  display: flex;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background-color: var(--badges);
+  mix-blend-mode: multiply;
+}
+.itemIcon {
+  width: 20px;
+  height: 20px;
+}
+.itemSignature {
+  color: var(--main);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.button {
+  margin-top: 24px;
+  display: flex;
+  width: 166px;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  background-color: var(--button);
+  color: var(--white);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5; /* 150% */
+  letter-spacing: -0.08px;
+}

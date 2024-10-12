@@ -1,3 +1,17 @@
+import { ThreeDots } from 'react-loader-spinner';
+
 export const Loader = () => {
-  return <div>Loader</div>;
+  return (
+    <ThreeDots
+      visible={true}
+      height="80"
+      width="80"
+      color="#E44848"
+      radius="9"
+      ariaLabel="three-dots-loading"
+      wrapperStyle={{
+        margin: 'auto',
+      }}
+    />
+  );
 };
