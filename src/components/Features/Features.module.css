@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 631px;
+  padding: 44px 80px;
+  flex-direction: column;
+  gap: 100px;
+  border-radius: 10px;
+  background-color: var(--inputs);
+}
+.list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-self: stretch;
+}
+.listItem {
+  display: flex;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background-color: var(--badges);
+  mix-blend-mode: multiply;
+}
+.itemIcon {
+  width: 20px;
+  height: 20px;
+}
+.itemSignature {
+  color: var(--main);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.wrapperParam {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  margin-bottom: 16px;
+}
+.wrapperParam:last-child {
+  margin-bottom: 0;
+}
+.nameParam {
+  color: var(--main);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.line {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}

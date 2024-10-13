@@ -32,7 +32,7 @@ export const campersSlise = createSlice({
       })
       .addCase(fetchCampersDetails.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.campersDetails = action.payload.items;
+        state.campersDetails = action.payload;
       })
       .addCase(fetchCampersDetails.rejected, (state, { payload }) => {
         state.isLoading = false;

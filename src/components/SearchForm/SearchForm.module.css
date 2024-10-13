@@ -13,7 +13,7 @@
 }
 
 .labelLocation {
-  color: var(--grey);
+  color: var(--gray);
   font-family: ' Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 .location::placeholder {
-  color: var(--grey);
+  color: var(--gray);
   font-family: ' Inter', sans-serif;
   font-size: 16px;
   font-style: normal;

@@ -17,6 +17,11 @@ export const SearchForm = () => {
   const isKitchenChecked = watch('kitchen', false);
   const isTVChecked = watch('TV', false);
   const isBathroomChecked = watch('bathroom', false);
+  const isRadioChecked = watch('radio', false);
+  const isRefrigeratorChecked = watch('refrigerator', false);
+  const isMicrowaveChecked = watch('microwave', false);
+  const isGasChecked = watch('gas', false);
+  const isWaterChecked = watch('water', false);
   const selectedVehicleType = watch('form', '');
 
   return (
@@ -128,6 +133,90 @@ export const SearchForm = () => {
               <use href={`${sprite}#icon-droplet`}></use>
             </svg>
             Bathroom
+          </label>
+          <label
+            className={`${css.labelCheck} ${isRadioChecked ? css.active : ''}`}
+          >
+            <input
+              type="checkbox"
+              name="checkboxVehicle"
+              id="radio"
+              {...register('radio')}
+              className={css.hiddenCheckbox}
+              onChange={handleCheckboxChange}
+            />
+            <svg className={css.icon}>
+              <use href={`${sprite}#icon-radio`}></use>
+            </svg>
+            Radio
+          </label>
+
+          <label
+            className={`${css.labelCheck} ${isRefrigeratorChecked ? css.active : ''}`}
+          >
+            <input
+              type="checkbox"
+              name="checkboxVehicle"
+              id="refrigerator"
+              {...register('refrigerator')}
+              className={css.hiddenCheckbox}
+              onChange={handleCheckboxChange}
+            />
+            <svg className={css.icon}>
+              <use href={`${sprite}#icon-refrigerator`}></use>
+            </svg>
+            Refrigerator
+          </label>
+
+          <label
+            className={`${css.labelCheck} ${isMicrowaveChecked ? css.active : ''}`}
+          >
+            <input
+              type="checkbox"
+              name="checkboxVehicle"
+              id="microwave"
+              {...register('microwave')}
+              className={css.hiddenCheckbox}
+              onChange={handleCheckboxChange}
+            />
+            <svg className={css.icon}>
+              <use href={`${sprite}#icon-microwave`}></use>
+            </svg>
+            Microwave
+          </label>
+
+          <label
+            className={`${css.labelCheck} ${isGasChecked ? css.active : ''}`}
+          >
+            <input
+              type="checkbox"
+              name="checkboxVehicle"
+              id="gas"
+              {...register('gas')}
+              className={css.hiddenCheckbox}
+              onChange={handleCheckboxChange}
+            />
+            <svg className={css.icon}>
+              <use href={`${sprite}#icon-gas`}></use>
+            </svg>
+            Gas
+          </label>
+
+          <label
+            className={`${css.labelCheck} ${isWaterChecked ? css.active : ''}`}
+          >
+            <input
+              type="checkbox"
+              name="checkboxVehicle"
+              id="water"
+              {...register('water')}
+              className={css.hiddenCheckbox}
+              onChange={handleCheckboxChange}
+            />
+            <svg className={css.icon}>
+              <use href={`${sprite}#icon-water`}></use>
+            </svg>
+            Water
           </label>
         </div>
       </div>

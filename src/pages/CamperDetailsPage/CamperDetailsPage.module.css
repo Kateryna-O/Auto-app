@@ -1,0 +1,128 @@
+.wrapper {
+  padding: 48px 64px;
+}
+
+.name {
+  align-self: stretch;
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.wrapperRating {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.rating {
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.location {
+  text-decoration-line: none;
+}
+.iconStar {
+  width: 16px;
+  height: 16px;
+  fill: var(--rating);
+}
+.iconMap {
+  width: 16px;
+  height: 16px;
+}
+.price {
+  margin-top: 16px;
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 28px;
+}
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+.imgItem {
+  width: 100%;
+  width: 292px;
+  height: 312px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.text {
+  font-family: 'Inter', sans-serif;
+  color: var(--main);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.wrapperdesc {
+  margin-top: 60px;
+}
+.tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  border-bottom: 2px solid var(--gray-light);
+  margin-bottom: 44px;
+}
+.tab {
+  color: var(--main);
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  padding-bottom: 24px;
+  cursor: pointer;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  display: block;
+  background-color: var(--button);
+  transition: width 0.3s ease;
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--button);
+  transition: width 0.3s ease;
+}
+.position {
+  display: flex;
+  gap: 40px;
+}
+.overview {
+  margin-right: 8px;
+}

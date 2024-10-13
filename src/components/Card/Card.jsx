@@ -1,5 +1,7 @@
+import { Link } from 'react-router-dom';
 import sprite from '../../assets/icon/sprite.svg';
 import css from './Card.module.css';
+import { useLocation } from 'react-router-dom';
 
 export const Card = ({ camper }) => {
   const imageSrc =
@@ -7,6 +9,7 @@ export const Card = ({ camper }) => {
       ? camper.gallery[0].thumb
       : 'path-to-default-image';
 
+  const location = useLocation();
   return (
     <div className={css.wrapperCard}>
       <img
@@ -131,9 +134,11 @@ export const Card = ({ camper }) => {
             </li>
           )}
         </ul>
-        <button type="button" className={css.button}>
-          Show more
-        </button>
+        <Link key={camper.id} to={`/catalog/${camper.id}`} state={location}>
+          <button type="button" className={css.button}>
+            Show more
+          </button>
+        </Link>
       </div>
     </div>
   );

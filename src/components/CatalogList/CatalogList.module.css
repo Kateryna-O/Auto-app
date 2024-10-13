@@ -13,4 +13,11 @@
   line-height: 1.5;
   letter-spacing: -0.08px;
   margin: auto;
+  margin-bottom: 20px;
+}
+
+.buttonLoad:hover,
+.buttonLoad:focus,
+.buttonLoad:active {
+  border-color: var(--button);
 }
