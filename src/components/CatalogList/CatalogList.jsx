@@ -17,15 +17,14 @@ export const CatalogList = () => {
   const error = useSelector(selectError);
 
   const [page, setPage] = useState(1);
-  const [itemsPerPage] = useState(4); // Кількість елементів на сторінці не змінюється
+  const [itemsPerPage] = useState(4);
 
-  // Викликається лише при зміні сторінки
   useEffect(() => {
     dispatch(fetchCampers({ page, itemsPerPage }));
   }, [dispatch, page, itemsPerPage]);
 
   const loadMore = () => {
-    setPage(prevPage => prevPage + 1); // Тільки збільшуємо номер сторінки
+    setPage(prevPage => prevPage + 1);
   };
 
   if (isLoading && campers.length === 0) {
@@ -45,7 +44,7 @@ export const CatalogList = () => {
           </li>
         ))}
       </ul>
-      {campers.length > itemsPerPage * page && ( // Відображаємо кнопку, якщо є ще елементи для завантаження
+      {campers.length > itemsPerPage * page && (
         <button type="button" className={css.buttonLoad} onClick={loadMore}>
           Load more
         </button>
