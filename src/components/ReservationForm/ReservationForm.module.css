@@ -94,3 +94,12 @@
   background-color: var(--button-hover);
   outline: none;
 }
+
+.error {
+  color: var(--button);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.3;
+}

@@ -4,7 +4,7 @@ import {
   selectError,
   selectIsLoading,
 } from '../../redux/camper/selectors';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchCampers } from '../../redux/camper/operations';
 import { Card } from '../Card/Card';
 import css from './CatalogList.module.css';
@@ -16,11 +16,19 @@ export const CatalogList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  useEffect(() => {
-    dispatch(fetchCampers());
-  }, [dispatch]);
+  const [page, setPage] = useState(1);
+  const [itemsPerPage] = useState(4); // Кількість елементів на сторінці не змінюється
 
-  if (isLoading) {
+  // Викликається лише при зміні сторінки
+  useEffect(() => {
+    dispatch(fetchCampers({ page, itemsPerPage }));
+  }, [dispatch, page, itemsPerPage]);
+
+  const loadMore = () => {
+    setPage(prevPage => prevPage + 1); // Тільки збільшуємо номер сторінки
+  };
+
+  if (isLoading && campers.length === 0) {
     return <Loader />;
   }
 
@@ -31,15 +39,17 @@ export const CatalogList = () => {
   return (
     <div>
       <ul>
-        {campers.map(camper => (
-          <li key={camper.id}>
+        {campers.slice(0, itemsPerPage * page).map((camper, index) => (
+          <li key={`${camper.id}-${index}`}>
             <Card camper={camper} />
           </li>
         ))}
       </ul>
-      <button type="button" className={css.buttonLoad}>
-        Load more
-      </button>
+      {campers.length > itemsPerPage * page && ( // Відображаємо кнопку, якщо є ще елементи для завантаження
+        <button type="button" className={css.buttonLoad} onClick={loadMore}>
+          Load more
+        </button>
+      )}
     </div>
   );
 };
