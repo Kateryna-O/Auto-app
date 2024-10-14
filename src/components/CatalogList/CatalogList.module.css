@@ -17,7 +17,6 @@
 }
 
 .buttonLoad:hover,
-.buttonLoad:focus,
-.buttonLoad:active {
+.buttonLoad:focus {
   border-color: var(--button);
 }
