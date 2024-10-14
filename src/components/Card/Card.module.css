@@ -40,6 +40,9 @@
   width: 25px;
   height: 25px;
 }
+.iconHeart.active {
+  fill: var(--button);
+}
 .buttonHeart {
   background-color: transparent;
   cursor: pointer;

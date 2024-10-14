@@ -1,29 +1,56 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/icon/sprite.svg';
 import css from './Card.module.css';
 import { useLocation } from 'react-router-dom';
 
 export const Card = ({ camper }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
   const imageSrc =
     camper.gallery && camper.gallery.length > 0
       ? camper.gallery[0].thumb
       : 'path-to-default-image';
 
   const location = useLocation();
+
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setIsFavorite(savedFavorites.some(fav => fav.id === camper.id));
+  }, [camper.id]);
+
+  const toggleFavorite = () => {
+    const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    if (isFavorite) {
+      const updatedFavorites = savedFavorites.filter(
+        fav => fav.id !== camper.id
+      );
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    } else {
+      savedFavorites.push(camper);
+      localStorage.setItem('favorites', JSON.stringify(savedFavorites));
+    }
+
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <div className={css.wrapperCard}>
-      <img
-        src={imageSrc}
-        alt={camper.name || 'Camper'}
-        className={css.img}
-      ></img>
+      <img src={imageSrc} alt={camper.name || 'Camper'} className={css.img} />
       <div>
         <div className={css.wrapperNamePrice}>
           <h2 className={css.name}>{camper.name}</h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <p className={css.price}>€{camper.price}</p>
-            <button type="button" className={css.buttonHeart}>
-              <svg className={css.iconHeart}>
+            <button
+              type="button"
+              className={css.buttonHeart}
+              onClick={toggleFavorite}
+            >
+              <svg
+                className={`${css.iconHeart} ${isFavorite ? css.active : ''}`}
+              >
                 <use href={`${sprite}#icon-heart`} />
               </svg>
             </button>
