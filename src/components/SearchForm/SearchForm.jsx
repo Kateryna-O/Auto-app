@@ -1,8 +1,6 @@
 import { useForm } from 'react-hook-form';
 import sprite from '../../assets/icon/sprite.svg';
 import css from './SearchForm.module.css';
-import { useDispatch } from 'react-redux';
-import { fetchFilteredCampers } from '../../redux/camper/operations';
 
 export const SearchForm = () => {
   const { register, handleSubmit, setValue, watch } = useForm({
@@ -26,26 +24,13 @@ export const SearchForm = () => {
   const isWaterChecked = watch('water', false);
   const selectedVehicleType = watch('form', '');
 
-  const dispatch = useDispatch();
-
-  const onSubmit = data => {
-    const filters = {
-      AC: data.AC,
-      transmission: data.transmission,
-      kitchen: data.kitchen,
-      TV: data.TV,
-      bathroom: data.bathroom,
-      radio: data.radio,
-      refrigerator: data.refrigerator,
-      microwave: data.microwave,
-      gas: data.gas,
-      water: data.water,
-      vehicleType: data.form,
-    };
-    dispatch(fetchFilteredCampers(filters));
-  };
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+    <form
+      onSubmit={handleSubmit(data => {
+        console.log(data);
+      })}
+      className={css.form}
+    >
       <div className={css.wrapperLocation}>
         <label htmlFor="location" className={css.labelLocation}>
           Location
