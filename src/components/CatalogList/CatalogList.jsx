@@ -15,6 +15,7 @@ export const CatalogList = () => {
   const campers = useSelector(selectCampers);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const filteredCampers = useSelector(state => state.campers.filteredCampers);
 
   const [page, setPage] = useState(1);
   const [itemsPerPage] = useState(4);
@@ -27,6 +28,9 @@ export const CatalogList = () => {
     setPage(prevPage => prevPage + 1);
   };
 
+  const campersToDisplay =
+    filteredCampers.length > 0 ? filteredCampers : campers;
+
   if (isLoading && campers.length === 0) {
     return <Loader />;
   }
@@ -38,13 +42,13 @@ export const CatalogList = () => {
   return (
     <div>
       <ul>
-        {campers.slice(0, itemsPerPage * page).map((camper, index) => (
+        {campersToDisplay.slice(0, itemsPerPage * page).map((camper, index) => (
           <li key={`${camper.id}-${index}`}>
             <Card camper={camper} />
           </li>
         ))}
       </ul>
-      {campers.length > itemsPerPage * page && (
+      {campersToDisplay.length > itemsPerPage * page && (
         <button type="button" className={css.buttonLoad} onClick={loadMore}>
           Load more
         </button>

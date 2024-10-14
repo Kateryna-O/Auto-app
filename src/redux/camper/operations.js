@@ -26,3 +26,21 @@ export const fetchCampersDetails = createAsyncThunk(
     }
   }
 );
+export const fetchFilteredCampers = createAsyncThunk(
+  'campers/fetchFiltered',
+  async (filters, thunkAPI) => {
+    try {
+      // Remove filters with null or undefined values
+      const cleanedFilters = Object.fromEntries(
+        Object.entries(filters).filter(([key, value]) => value != null)
+      );
+      console.log('Filters being sent:', cleanedFilters);
+      const params = new URLSearchParams(cleanedFilters);
+      console.log(params.toString());
+      const response = await axios.get(`${baseURL}?${params.toString()}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
