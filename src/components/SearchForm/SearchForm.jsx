@@ -231,7 +231,7 @@ export const SearchForm = () => {
               type="radio"
               name="form"
               id="Van"
-              value="Van"
+              value="van"
               {...register('form')}
               className={css.hiddenCheckbox}
             />
@@ -248,7 +248,7 @@ export const SearchForm = () => {
               type="radio"
               name="form"
               id="FullyIntegrated"
-              value="FullyIntegrated"
+              value="fullyIntegrated"
               {...register('form')}
               className={css.hiddenCheckbox}
             />
@@ -265,7 +265,7 @@ export const SearchForm = () => {
               type="radio"
               name="form"
               id="Alcove"
-              value="Alcove"
+              value="alcove"
               {...register('form')}
               className={css.hiddenCheckbox}
             />
